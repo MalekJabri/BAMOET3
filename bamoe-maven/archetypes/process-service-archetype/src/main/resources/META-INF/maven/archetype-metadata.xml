@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd" name="barry-project-1" xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  	<fileSets>
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory></directory>
+			<includes>
+				<include>.gitignore</include>
+				<include>README.MD</include>
+				<include>**/*.md</include>
+				<include>LICENSE</include>
+				<include>pom.xml</include>
+			</includes>
+		</fileSet>
+
+		<fileSet filtered="false" packaged="false" encoding="UTF-8">
+			<directory>./</directory>
+			<includes>
+                <include>.gitignore</include>
+			</includes>
+		</fileSet>
+
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>.mvn</directory>
+			<includes>
+				<include>**/*.config</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>docker-compose</directory>
+			<includes>
+				<include>**/*.yml</include>
+				<include>**/*.md</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/java</directory>
+			<includes>
+				<include>**/*.java</include>
+				<include>**/*.md</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/resources</directory>
+			<includes>
+				<include>**/*.properties</include>
+				<include>**/*.wid</include>
+				<include>**/*.bpmn</include>
+				<include>**/*.bpmn2</include>
+				<include>**/*.drl</include>
+				<include>**/*.dmn</include>
+				<include>**/*.scesim</include>
+				<include>**/*.xml</include>
+				<include>**/*.md</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/resources/META-INF</directory>
+			<includes>
+				<include>**/*.xml</include>
+				<include>**/*.properties</include>
+				<include>**/*.md</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/test/java</directory>
+			<includes>
+				<include>**/*.java</include>
+				<include>**/*.md</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/test/resources</directory>
+			<includes>
+				<include>**/*.properties</include>
+				<include>**/*.xml</include>
+				<include>**/*.scesim</include>
+				<include>**/*.feature</include>
+				<include>**/*.md</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+
+	<requiredProperties>
+		<!-- Project Level -->
+		<requiredProperty key="projectName">
+			<defaultValue>untitled</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="projectDescription">
+			<defaultValue>Kogito Stateful Process Service</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="groupId">
+			<defaultValue>com.ibm.edu.bamoe.workshop.student</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="artifactId">
+			<defaultValue>untitled</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="version">
+			<defaultValue>1.0.0-SNAPSHOT</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="packaging">
+			<defaultValue>jar</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="skipTests">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenCompilerPluginVersion">
+			<defaultValue>3.10.1</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenCompilerParameters">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenResourcesPluginVersion">
+			<defaultValue>3.2.0</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenSurefirePluginVersion">
+			<defaultValue>3.0.0-M7</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="javaVersion">
+			<defaultValue>17</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="jandexVersion">
+			<defaultValue>1.2.1</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="sourceEncoding">
+			<defaultValue>UTF-8</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="outputEncoding">
+			<defaultValue>UTF-8</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="package">
+			<defaultValue>com.ibm.edu.bamoe.workshop.student</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="javaPackage">
+			<defaultValue>com/ibm/edu/bamoe/workshop/student</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="processName">
+			<defaultValue>my-process</defaultValue>
+		</requiredProperty>
+
+		<!-- BAMOE -->
+		<requiredProperty key="useILMT">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="annotationProductID">
+			<defaultValue>72984f114b54496a8a44be139154a988</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="annotationProductName">
+			<defaultValue>IBM Process Automation Manager Open Edition</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="annotationProductMetric">
+			<defaultValue>VIRTUAL_PROCESSOR_CORE</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="annotationProductChargedContainers">
+			<defaultValue>All</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="bamoeGroupId">
+			<defaultValue>com.ibm.bamoe</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="bamoeArtifactId">
+			<defaultValue>bamoe-bom</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="bamoeVersion">
+			<defaultValue>9.2.1-ibm-0005</defaultValue>
+		</requiredProperty>
+
+		<!-- BAMOE Runtimes -->
+		<requiredProperty key="bamoeRuntime">
+			<defaultValue>quarkus</defaultValue>
+		</requiredProperty>
+
+		<!-- Quarkus Runtime -->
+		<requiredProperty key="quarkusRuntimeGroupId">
+			<defaultValue>io.quarkus</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="quarkusRuntimeArtifactId">
+			<defaultValue>quarkus-bom</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="quarkusRuntimeVersion">
+			<defaultValue>3.20.1</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="quarkusPlugin">
+			<defaultValue>quarkus-maven-plugin</defaultValue>
+		</requiredProperty>
+
+		<!-- Sharable Fact Model -->
+		<requiredProperty key="useFactModel">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="factModelGroupId">
+			<defaultValue>com.ibm.edu.bamoe.workshop.student</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="factModelArtifactId">
+			<defaultValue>my-fact-model</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="factModelVersion">
+			<defaultValue>1.0.0-SNAPSHOT</defaultValue>
+		</requiredProperty>
+
+		<!-- Logging -->
+		<requiredProperty key="loggingEnabled">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="loggingLevel">
+			<defaultValue>WARN</defaultValue>
+		</requiredProperty>
+
+		<!-- Swagger -->
+		<requiredProperty key="swaggerEnabled">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<!-- Dev Profile -->
+		<requiredProperty key="devFlywayEnabled">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+		
+		<requiredProperty key="devPersistenceType">
+			<defaultValue>jdbc</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="devDatabaseKind">
+			<defaultValue>h2</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="devHibernateValidateInDevMode">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="devHibernateSchemaGeneration">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="devDevServicesNonKeywords">
+			<defaultValue>VALUE,KEY</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="devUserGroups">
+			<defaultValue>admin,HR,IT</defaultValue>
+		</requiredProperty>
+
+		<!-- Docker Profile -->
+		<requiredProperty key="dockerContainerImageBuild">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="dockerContainerImagePush">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="dockerContainerImageGroup">
+			<defaultValue>bamoe-student-labs</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="dockerContainerImageBuilder">
+			<defaultValue>jib</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="dockerContainerImageBuilderUser">
+			<defaultValue>185</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="dockerContainerImageRegistry">
+			<defaultValue>dev.local</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="dockerHostPort">
+			<defaultValue>8080</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="dockerContainerPort">
+			<defaultValue>8080</defaultValue>
+		</requiredProperty>
+
+		<!-- OpenShift Profile -->
+		<requiredProperty key="ocpContainerImageBuild">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpContainerImagePush">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpContainerImageGroup">
+			<defaultValue>bamoe-student-labs</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpContainerImageBuilder">
+			<defaultValue>jib</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpContainerImageRegistry">
+			<defaultValue>default-route-openshift-image-registry.apps-crc.testing</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpDeploy">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpRouteExpose">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpRouteTLSTermination">
+			<defaultValue>edge</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpRouteTLSInsecureEdgeTerminationPolicy">
+			<defaultValue>None</defaultValue>
+		</requiredProperty>
+
+		<!-- OpenShift Persistence -->
+		<requiredProperty key="ocpFlywayEnabled">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+		
+		<requiredProperty key="ocpPersistenceType">
+			<defaultValue>jdbc</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpDatabaseKind">
+			<defaultValue>postgresql</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpHibernateValidateInDevMode">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpHibernateSchemaGeneration">
+			<defaultValue>none</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpDataSourceUsername">
+			<defaultValue>bamoe-user</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpDataSourcePassword">
+			<defaultValue>bamoe-pass</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpDataSourceUrl">
+			<defaultValue>jdbc:postgresql://postgres.bamoe-v921-infrastructure:5432/bamoe</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="ocpDataSourceReactiveUrl">
+			<defaultValue>jdbc:postgresql://postgres.bamoe-v921-infrastructure:5432/bamoe</defaultValue>
+		</requiredProperty>
+
+		<!-- Security -->
+		<requiredProperty key="quarkusOIDCEnabled">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="kogitoAuthEnabled">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<!-- Dev Services -->
+		<requiredProperty key="devServicesCorsEnabled">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="devServicesEnabled">
+			<defaultValue>false</defaultValue>
+		</requiredProperty>
+
+		<!-- Proess Services -->
+		<requiredProperty key="kogitoServiceURL">
+			<defaultValue>http://127.0.0.1:8080</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="kogitoJobsServiceURL">
+			<defaultValue>http://127.0.0.1:8080</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="kogitoDataIndexServiceURL">
+			<defaultValue>http://127.0.0.1:8080</defaultValue>
+		</requiredProperty>
+	</requiredProperties>
+</archetype-descriptor>

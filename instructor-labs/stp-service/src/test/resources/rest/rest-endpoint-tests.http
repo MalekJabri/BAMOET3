@@ -1,0 +1,66 @@
+################################################
+# REST Endpoint Tests
+################################################
+
+@local.host.url = http://localhost:8080
+@remote.host.url = https://stp-service-bamoe-instructor-labs.apps-crc.testing
+@host={{remote.host.url}}
+@contentType = application/json
+
+############################################
+# Find All Deposit Amounts
+############################################
+
+POST {{host}}/deposits HTTP/1.1
+content-type: {{contentType}}
+
+{
+    "depositRequest": 
+    {
+        "maxAmount": 5000,
+        "deposits": [
+            {
+                "id": "ABC10001",
+                "amount": 3000,
+                "deposit": 100,
+                "customer": {
+                    "age": 45,
+                    "firstName": "Walter",
+                    "lastName": "White"
+                }
+            },
+            {
+                "id": "ABC10002",
+                "amount": 5000,
+                "deposit": 100,
+                "customer": {
+                    "age": 3,
+                    "firstName": "Holly",
+                    "lastName": "White"
+                }
+            },
+            {
+                "id": "ABC10015",
+                "amount": 1000,
+                "deposit": 100,
+                "customer": {
+                    "age": 12,
+                    "firstName": "Walter",
+                    "lastName": "White Jr."
+                }
+            },
+            {
+                "id": "ABC10015",
+                "amount": 1000,
+                "deposit": 100,
+                "customer": {
+                    "age": 62,
+                    "firstName": "Saul",
+                    "lastName": "Goodman"
+                }
+            }
+        ]
+    }
+}
+
+

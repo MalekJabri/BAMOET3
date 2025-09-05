@@ -1,0 +1,334 @@
+################################################
+# REST Endpoint Tests
+################################################
+
+@local.host.url = http://localhost:8080
+@remote.host.url = https://decision-service-bamoe-instructor-labs.apps-crc.testing
+@host={{remote.host.url}}
+@contentType = application/json
+
+############################################
+# Find All Deposit Amounts
+############################################
+
+POST {{host}}/find-all-deposit-amounts HTTP/1.1
+content-type: {{contentType}}
+
+{
+    "maxAmount": 5000,
+    "deposits": [
+        {
+            "id": "ABC10001",
+            "amount": 3000,
+            "deposit": 100,
+            "customer": {
+                "age": 45,
+                "firstName": "Walter",
+                "lastName": "White"
+            }
+        },
+        {
+            "id": "ABC10002",
+            "amount": 5000,
+            "deposit": 100,
+            "customer": {
+                "age": 3,
+                "firstName": "Holly",
+                "lastName": "White"
+            }
+        },
+        {
+            "id": "ABC10015",
+            "amount": 1000,
+            "deposit": 100,
+            "customer": {
+                "age": 12,
+                "firstName": "Walter",
+                "lastName": "White Jr."
+            }
+        },
+        {
+            "id": "ABC10015",
+            "amount": 1000,
+            "deposit": 100,
+            "customer": {
+                "age": 62,
+                "firstName": "Saul",
+                "lastName": "Goodman"
+            }
+        }
+    ]
+}
+
+############################################
+# Find First Deposit Amounts
+############################################
+
+POST {{host}}/find-all-deposit-amounts/first HTTP/1.1
+content-type: {{contentType}}
+
+{
+    "maxAmount": 5000,
+    "deposits": [
+        {
+            "id": "ABC10001",
+            "amount": 2000,
+            "deposit": 100,
+            "customer": {
+                "age": 45,
+                "firstName": "Walter",
+                "lastName": "White"
+            }
+        },
+        {
+            "id": "ABC10002",
+            "amount": 5000,
+            "deposit": 100,
+            "customer": {
+                "age": 3,
+                "firstName": "Holly",
+                "lastName": "White"
+            }
+        },
+        {
+            "id": "ABC10015",
+            "amount": 1000,
+            "deposit": 100,
+            "customer": {
+                "age": 12,
+                "firstName": "Walter",
+                "lastName": "White Jr."
+            }
+        },
+        {
+            "id": "ABC10015",
+            "amount": 1000,
+            "deposit": 100,
+            "customer": {
+                "age": 62,
+                "firstName": "Saul",
+                "lastName": "Goodman"
+            }
+        }
+    ]
+}
+
+############################################
+# Find Approved Deposits
+############################################
+
+POST {{host}}/find-approved HTTP/1.1
+content-type: {{contentType}}
+
+{
+    "maxAmount": 5000,
+    "deposits": [
+        {
+            "id": "ABC10001",
+            "amount": 2000,
+            "deposit": 100,
+            "customer": {
+                "id": "762-74-7236",
+                "age": 45,
+                "firstName": "Walter",
+                "lastName": "White"
+            }
+        },
+        {
+            "id": "ABC10002",
+            "amount": 5000,
+            "deposit": 100,
+            "customer": {
+                "id": "274-23-6574",
+                "age": 3,
+                "firstName": "Holly",
+                "lastName": "White"
+            }
+        },
+        {
+            "id": "ABC10015",
+            "amount": 1000,
+            "deposit": 100,
+            "customer": {
+                "id": "555-74-8457",
+                "age": 12,
+                "firstName": "Walter",
+                "lastName": "White Jr."
+            }
+        },
+        {
+            "id": "ABC10015",
+            "amount": 1000,
+            "deposit": 100,
+            "customer": {
+                "id": "554-88-7465",
+                "age": 62,
+                "firstName": "Saul",
+                "lastName": "Goodman"
+            }
+        }
+    ]
+}
+
+############################################
+# Find First Approved Deposit
+############################################
+
+POST {{host}}/find-approved/first HTTP/1.1
+content-type: {{contentType}}
+
+{
+    "maxAmount": 5000,
+    "deposits": [
+        {
+            "id": "ABC10001",
+            "amount": 2000,
+            "deposit": 100,
+            "customer": {
+                "id": "762-74-7236",
+                "age": 45,
+                "firstName": "Walter",
+                "lastName": "White"
+            }
+        },
+        {
+            "id": "ABC10002",
+            "amount": 5000,
+            "deposit": 100,
+            "customer": {
+                "id": "274-23-6574",
+                "age": 3,
+                "firstName": "Holly",
+                "lastName": "White"
+            }
+        },
+        {
+            "id": "ABC10015",
+            "amount": 1000,
+            "deposit": 100,
+            "customer": {
+                "id": "555-74-8457",
+                "age": 12,
+                "firstName": "Walter",
+                "lastName": "White Jr."
+            }
+        },
+        {
+            "id": "ABC10015",
+            "amount": 1000,
+            "deposit": 100,
+            "customer": {
+                "id": "554-88-7465",
+                "age": 62,
+                "firstName": "Saul",
+                "lastName": "Goodman"
+            }
+        }
+    ]
+}
+
+################################################
+# Find Not Approved Deposits (by ID and Amount)
+################################################
+
+POST {{host}}/find-not-approved-id-and-amount HTTP/1.1
+content-type: {{contentType}}
+
+{
+    "maxAmount": 5000,
+    "deposits": [
+        {
+            "id": "ABC10001",
+            "amount": 2000,
+            "deposit": 100,
+            "customer": {
+                "age": 45,
+                "firstName": "Walter",
+                "lastName": "White"
+            }
+        },
+        {
+            "id": "ABC10002",
+            "amount": 5000,
+            "deposit": 100,
+            "customer": {
+                "age": 3,
+                "firstName": "Holly",
+                "lastName": "White"
+            }
+        },
+        {
+            "id": "ABC10015",
+            "amount": 1000,
+            "deposit": 100,
+            "customer": {
+                "age": 12,
+                "firstName": "Walter",
+                "lastName": "White Jr."
+            }
+        },
+        {
+            "id": "ABC10015",
+            "amount": 1000,
+            "deposit": 100,
+            "customer": {
+                "age": 62,
+                "firstName": "Saul",
+                "lastName": "Goodman"
+            }
+        }
+    ]
+}
+
+#######################################################
+# Find First Not Approved Deposits (by ID and Amount)
+#######################################################
+
+POST {{host}}/find-not-approved-id-and-amount/first HTTP/1.1
+content-type: {{contentType}}
+
+{
+    "maxAmount": 5000,
+    "deposits": [
+        {
+            "id": "ABC10001",
+            "amount": 2000,
+            "deposit": 100,
+            "customer": {
+                "age": 45,
+                "firstName": "Walter",
+                "lastName": "White"
+            }
+        },
+        {
+            "id": "ABC10002",
+            "amount": 5000,
+            "deposit": 100,
+            "customer": {
+                "age": 3,
+                "firstName": "Holly",
+                "lastName": "White"
+            }
+        },
+        {
+            "id": "ABC10015",
+            "amount": 1000,
+            "deposit": 100,
+            "customer": {
+                "age": 12,
+                "firstName": "Walter",
+                "lastName": "White Jr."
+            }
+        },
+        {
+            "id": "ABC10015",
+            "amount": 1000,
+            "deposit": 100,
+            "customer": {
+                "age": 62,
+                "firstName": "Saul",
+                "lastName": "Goodman"
+            }
+        }
+    ]
+}

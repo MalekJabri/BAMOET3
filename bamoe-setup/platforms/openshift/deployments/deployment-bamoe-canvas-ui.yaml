@@ -1,0 +1,204 @@
+﻿kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '2'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"bamoe-canvas-ui:9.2.1-ibm-0005"},"fieldPath":"spec.template.spec.containers[?(@.name==\"bamoe-canvas-ui\")].image"}]'
+    openshift.io/generated-by: OpenShiftNewApp
+  resourceVersion: '350435'
+  name: bamoe-canvas-ui
+  uid: 9a6a4339-e4ff-402d-a3a3-5ce14bc34191
+  creationTimestamp: '2025-08-07T02:26:02Z'
+  generation: 2
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-08-07T02:26:02Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:image.openshift.io/triggers': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:progressDeadlineSeconds': {}
+          'f:replicas': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector': {}
+          'f:strategy':
+            'f:rollingUpdate':
+              .: {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:annotations':
+                .: {}
+                'f:openshift.io/generated-by': {}
+              'f:labels':
+                .: {}
+                'f:deployment': {}
+            'f:spec':
+              'f:containers':
+                'k:{"name":"bamoe-canvas-ui"}':
+                  .: {}
+                  'f:env':
+                    .: {}
+                    'k:{"name":"KIE_SANDBOX_CORS_PROXY_URL"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"KIE_SANDBOX_EXTENDED_SERVICES_URL"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":8080,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                  'f:resources': {}
+                  'f:terminationMessagePath': {}
+                  'f:terminationMessagePolicy': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-08-07T02:26:02Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:template':
+            'f:spec':
+              'f:containers':
+                'k:{"name":"bamoe-canvas-ui"}':
+                  'f:image': {}
+    - manager: kubectl-label
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-08-07T02:26:03Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-08-11T17:11:58Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:availableReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+          'f:updatedReplicas': {}
+      subresource: status
+  namespace: bamoe-v921
+  labels:
+    app: bamoe-canvas-ui
+    app.kubernetes.io/component: bamoe-canvas-ui
+    app.kubernetes.io/instance: bamoe-canvas-ui
+    app.kubernetes.io/part-of: bamoe-v921
+    app.openshift.io/runtime: js
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: bamoe-canvas-ui
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        deployment: bamoe-canvas-ui
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+        productID: "72984f114b54496a8a44be139154a988"
+        productName: "IBM Process Automation Manager Open Edition"
+        productMetric: "VIRTUAL_PROCESSOR_CORE"
+        productChargedContainers: "All"
+    spec:
+      containers:
+        - name: bamoe-canvas-ui
+          image: 'quay.io/bamoe/canvas@sha256:7e78b335b65fd23058efdb0b26b5048ddecc56f29f3f8f5bf6930e184defd59b'
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: KIE_SANDBOX_CORS_PROXY_URL
+              value: 'https://bamoe-canvas-cors-proxy-bamoe-v921.apps-crc.testing'
+            - name: KIE_SANDBOX_EXTENDED_SERVICES_URL
+              value: 'https://bamoe-canvas-extended-services-bamoe-v921.apps-crc.testing'
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 2
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2025-08-07T02:26:04Z'
+      lastTransitionTime: '2025-08-07T02:26:02Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "bamoe-canvas-ui-cff94dfd7" has successfully progressed.
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2025-08-11T17:11:58Z'
+      lastTransitionTime: '2025-08-11T17:11:58Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.

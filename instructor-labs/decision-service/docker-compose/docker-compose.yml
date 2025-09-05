@@ -1,0 +1,10 @@
+services:
+
+  decision-service:
+    container_name: decision-service
+    image: dev.local/bamoe-instructor-labs/decision-service:1.0.0
+    platform: linux/amd64
+    ports:
+      - 8082:8080
+      
+  

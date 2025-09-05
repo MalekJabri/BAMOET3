@@ -1,0 +1,79 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: bamoe-canvas-cors-proxy
+  namespace: bamoe-v921
+  uid: 5bd42748-fd37-4cac-bd44-ccfea25fcf29
+  resourceVersion: '68451'
+  creationTimestamp: '2025-08-07T02:26:00Z'
+  labels:
+    app: bamoe-canvas-cors-proxy
+    app.kubernetes.io/component: bamoe-canvas-cors-proxy
+    app.kubernetes.io/instance: bamoe-canvas-cors-proxy
+    app.kubernetes.io/part-of: bamoe-v921
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: kubectl-label
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-08-07T02:26:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:app.kubernetes.io/part-of': {}
+    - manager: oc
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-08-07T02:26:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:tls':
+            .: {}
+            'f:termination': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-08-07T02:26:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+      subresource: status
+spec:
+  host: bamoe-canvas-cors-proxy-bamoe-v921.apps-crc.testing
+  to:
+    kind: Service
+    name: bamoe-canvas-cors-proxy
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  tls:
+    termination: edge
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: bamoe-canvas-cors-proxy-bamoe-v921.apps-crc.testing
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2025-08-07T02:26:00Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: router-default.apps-crc.testing

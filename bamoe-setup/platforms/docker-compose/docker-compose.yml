@@ -1,0 +1,57 @@
+services:
+
+  ## This section installs the BAMOE Maven repository as a container image
+  bamoe-maven-921:
+    container_name: bamoe-v921-maven
+    image: quay.io/bamoe/maven-repository:9.2.1-ibm-0005
+    platform: linux/amd64
+    ports:
+      - 9021:8080
+
+  # This section installs the main BAMOE Canvas application
+  bamoe-canvas-ui:
+    container_name: bamoe-v921-canvas-ui
+    image: "quay.io/bamoe/canvas:9.2.1-ibm-0005"
+    platform: linux/amd64
+    ports:
+      - 9090:8080
+    environment:
+      KIE_SANDBOX_REQUIRE_CUSTOM_COMMIT_MESSAGE: true
+      KIE_SANDBOX_EXTENDED_SERVICES_URL: "http://localhost:21345"
+      KIE_SANDBOX_CORS_PROXY_URL: "http://localhost:7081"
+      KIE_SANDBOX_ACCELERATORS: > 
+        [
+          { "name": "Quarkus DMN", "iconUrl": "https://github.com/kiegroup/kie-sandbox-quarkus-accelerator/raw/0.0.0/quarkus-logo.png", "gitRepositoryUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator", "gitRepositoryGitRef": "9.2.0-bamoe-0003-quarkus-dmn", "dmnDestinationFolder": "src/main/resources/dmn", "bpmnDestinationFolder": "src/main/resources/bpmn", "otherFilesDestinationFolder": "src/main/resources/others" },
+          { "name": "Quarkus Full","iconUrl": "https://github.com/kiegroup/kie-sandbox-quarkus-accelerator/raw/0.0.0/quarkus-logo.png", "gitRepositoryUrl": "https://github.com/ibm/bamoe-canvas-quarkus-accelerator", "gitRepositoryGitRef": "9.2.0-ibm-0003-quarkus-full",  "dmnDestinationFolder": "src/main/resources/dmn", "bpmnDestinationFolder": "src/main/resources/bpmn", "otherFilesDestinationFolder": "src/main/resources/others" }        
+        ]
+      KIE_SANDBOX_AUTH_PROVIDERS: > 
+        [
+          { "id":"github_dot_com", "domain":"github.com",     "supportedGitRemoteDomains":["github.com","gist.github.com"],         "type":"github", "name":"GitHub",       "enabled":true, "group":"git" },
+          { "id":"github_at_IBM",  "domain":"github.ibm.com", "supportedGitRemoteDomains":["github.ibm.com","gist.github.ibm.com"], "type":"github", "name":"GitHub @ IBM", "enabled":true, "group":"git" }
+        ]
+
+    depends_on:
+      - bamoe-canvas-extended-services
+      - bamoe-canvas-cors-proxy
+
+  # This section installs the BAMOE Extended Services container, which is used in support of the overall Canvas application
+  bamoe-canvas-extended-services:
+    container_name: bamoe-v921-canvas-extended-services
+    image: "quay.io/bamoe/extended-services:9.2.1-ibm-0005"
+    ports:
+      - 21345:21345
+
+  # This section installs the BAMOE Cors Proxy container, which is used in support of the overall Canvas application
+  bamoe-canvas-cors-proxy:
+    container_name: bamoe-v921-canvas-cors-proxy
+    image: "quay.io/bamoe/cors-proxy:9.2.1-ibm-0005"
+    ports:
+      - 7081:8080
+
+  bamoe-managment-console:
+    container_name: bamoe-v921-management-console
+    image: "quay.io/bamoe/management-console:9.2.1-ibm-0005"
+    ports:
+      - "8380:8080"
+    environment:
+      RUNTIME_TOOLS_MANAGEMENT_CONSOLE_APP_NAME: "BAMOE Management Console"

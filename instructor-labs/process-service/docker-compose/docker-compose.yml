@@ -1,0 +1,10 @@
+services:
+
+  process-service:
+    container_name: process-service
+    image: dev.local/bamoe-instructor-labs/process-service:1.0.0
+    platform: linux/amd64
+    ports:
+      - 8080:8080
+      
+  

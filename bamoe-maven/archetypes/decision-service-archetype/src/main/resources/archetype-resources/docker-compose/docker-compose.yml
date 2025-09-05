@@ -1,0 +1,9 @@
+services:
+
+  ${projectName}:
+    container_name: ${projectName}
+    image: ${dockerContainerImageRegistry}/${dockerContainerImageGroup}/${projectName}:${version}
+    ports:
+      - "${dockerHostPort}:${dockerContainerPort}"
+    extra_hosts:
+      - "127.0.0.1:host-gateway"

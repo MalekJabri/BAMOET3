@@ -1,0 +1,27 @@
+################################################
+# REST Endpoint Tests
+################################################
+
+@local.host.url = http://localhost:8080
+@remote.host.url = https://decision-model-service-bamoe-instructor-labs.apps-crc.testing
+@host={{remote.host.url}}
+@contentType = application/json
+
+POST {{host}}/Traffic Violation HTTP/1.1
+content-type: {{contentType}}
+
+{
+    "Violation": {
+        "Date": "2025-07-26",
+        "Type": "speed",
+        "Speed Limit": 100,
+        "Actual Speed": 120
+    },
+    "Driver": {
+        "Name": "Walter White",
+        "Age": 55,
+        "State": "New Mexico",
+        "City": "Albuquerque",
+        "Points": 2
+    }
+}

@@ -1,0 +1,74 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: bamoe-maven-repository
+  namespace: bamoe-v921
+  uid: bdbef7d4-f80a-4e63-8565-8720d92d941e
+  resourceVersion: '58671'
+  creationTimestamp: '2025-08-07T01:04:19Z'
+  labels:
+    app: bamoe-maven-repository
+    app.kubernetes.io/component: bamoe-maven-repository
+    app.kubernetes.io/instance: bamoe-maven-repository
+    app.kubernetes.io/part-of: bamoe-v921
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: kubectl-label
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-08-07T01:04:19Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:app.kubernetes.io/part-of': {}
+    - manager: oc
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-08-07T01:04:19Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-08-07T01:04:19Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+      subresource: status
+spec:
+  host: bamoe-maven-repository-bamoe-v921.apps-crc.testing
+  to:
+    kind: Service
+    name: bamoe-maven-repository
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: bamoe-maven-repository-bamoe-v921.apps-crc.testing
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2025-08-07T01:04:19Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: router-default.apps-crc.testing

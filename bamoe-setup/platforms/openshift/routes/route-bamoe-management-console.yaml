@@ -1,0 +1,74 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: bamoe-management-console
+  namespace: bamoe-v921
+  uid: 3feb51cc-63b4-4a59-9d16-e114b7bed51d
+  resourceVersion: '68288'
+  creationTimestamp: '2025-08-07T02:25:40Z'
+  labels:
+    app: bamoe-management-console
+    app.kubernetes.io/component: bamoe-management-console
+    app.kubernetes.io/instance: bamoe-management-console
+    app.kubernetes.io/part-of: bamoe-v921
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: kubectl-label
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-08-07T02:25:40Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:app.kubernetes.io/part-of': {}
+    - manager: oc
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-08-07T02:25:40Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2025-08-07T02:25:40Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+      subresource: status
+spec:
+  host: bamoe-management-console-bamoe-v921.apps-crc.testing
+  to:
+    kind: Service
+    name: bamoe-management-console
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: bamoe-management-console-bamoe-v921.apps-crc.testing
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2025-08-07T02:25:40Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: router-default.apps-crc.testing

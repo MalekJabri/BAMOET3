@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd" name="barry-project-1" xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  	<fileSets>
+		<!-- This is the root folder for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory></directory>
+			<includes>
+				<include>.gitignore</include>
+				<include>README.MD</include>
+				<include>LICENSE</include>
+				<include>pom.xml</include>
+			</includes>
+		</fileSet>
+
+		<fileSet filtered="false" packaged="false" encoding="UTF-8">
+			<directory>./</directory>
+			<includes>
+                <include>.gitignore</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the .mvn files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>.mvn</directory>
+			<includes>
+				<include>**/*.config</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the Java source files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/java</directory>
+			<includes>
+				<include>**/*.java</include>
+				<include>**/**</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the resource files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/main/resources</directory>
+			<includes>
+				<include>**/*.properties</include>
+				<include>**/*.xml</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the Java test ource files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/test/java</directory>
+			<includes>
+				<include>**/*.java</include>
+				<include>**/*.properties</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+
+		<!-- This folder contains the test resource files for the project -->
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>src/test/resources</directory>
+			<includes>
+				<include>**/*.properties</include>
+				<include>**/*.xml</include>
+				<include>.gitkeep</include>
+				<include>.empty</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+
+	<!-- These properties are required -->
+	<requiredProperties>
+		<requiredProperty key="projectName">
+			<defaultValue>untitled</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="projectDescription">
+			<defaultValue>Sharable Fact Model</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="groupId">
+			<defaultValue>com.ibm.edu.bamoe.workshop.student</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="artifactId">
+			<defaultValue>untitled</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="version">
+			<defaultValue>1.0.0-SNAPSHOT</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="packaging">
+			<defaultValue>jar</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="javaPackage">
+			<defaultValue>com/ibm/edu/bamoe/workshop/student</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="package">
+			<defaultValue>com.ibm.edu.bamoe.workshop.student</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="sampleClassName">
+			<defaultValue>Sample</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenCompilerPluginVersion">
+			<defaultValue>3.10.1</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenCompilerParameters">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenResourcesPluginVersion">
+			<defaultValue>3.2.0</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="mavenSurefirePluginVersion">
+			<defaultValue>3.0.0-M7</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="javaVersion">
+			<defaultValue>17</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="sourceEncoding">
+			<defaultValue>UTF-8</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="outputEncoding">
+			<defaultValue>UTF-8</defaultValue>
+		</requiredProperty>
+
+		<requiredProperty key="skipTests">
+			<defaultValue>true</defaultValue>
+		</requiredProperty>
+	</requiredProperties>
+</archetype-descriptor>

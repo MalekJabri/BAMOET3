@@ -1,0 +1,15 @@
+package rules
+expander model.dsl
+
+rule "Default Action" 
+   dialect "mvel"
+  
+   when 
+      There is customer
+      There is recommendation for the customer
+   	    - action taken is not null and action taken is not empty
+   	    - action taken == "Default" 
+   then
+      set the action taken of the recommendation to upper case 
+      set the message of recommendation to "Capitalized Default Recommendation"     
+end 

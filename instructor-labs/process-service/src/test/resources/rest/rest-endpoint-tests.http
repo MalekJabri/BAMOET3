@@ -1,0 +1,42 @@
+################################################
+# REST Endpoint Tests
+################################################
+
+@local.host.url = http://localhost:8080
+@remote.host.url = https://process-service-bamoe-instructor-labs.apps-crc.testing
+@host={{local.host.url}}
+@contentType = application/json
+
+############################################
+# Hiring - Without Skills
+############################################
+
+POST {{host}}/hiring HTTP/1.1
+content-type: {{contentType}}
+
+{
+  "candidateData": {
+    "name": "Gale",
+    "lastName": "Boetticher",
+    "email": "gale@pollos.org",
+    "experience": 0,
+    "skills": []
+  }
+}
+
+############################################
+# Hiring - With Skills
+############################################
+
+POST {{host}}/hiring HTTP/1.1
+content-type: {{contentType}}
+
+{
+  "candidateData": {
+    "name": "Walter",
+    "lastName": "White",
+    "email": "walter@pollos.org",
+    "experience": 15,
+    "skills": ["Java", "Kogito", "Fencing"]
+  }
+}

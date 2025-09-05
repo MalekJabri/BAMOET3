@@ -1,0 +1,7 @@
+package rules
+
+rule "Sample DRL Rule" when 
+	$customer: com.ibm.edu.bamoe.labs.model.Customer()
+then
+    System.out.println("Found a customer in pure DRL rule: " + $customer.toString());
+end 

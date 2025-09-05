@@ -1,0 +1,10 @@
+services:
+
+  stp-service:
+    container_name: stp-service
+    image: dev.local/bamoe-instructor-labs/stp-service:1.0.0
+    platform: linux/amd64
+    ports:
+      - 8080:8080
+      
+  

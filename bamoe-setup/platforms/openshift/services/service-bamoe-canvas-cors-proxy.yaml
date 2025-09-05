@@ -1,0 +1,72 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: bamoe-canvas-cors-proxy
+  namespace: bamoe-v921
+  uid: c6af9d0e-9480-4285-a7af-9510d7fe0b90
+  resourceVersion: '68447'
+  creationTimestamp: '2025-08-07T02:26:00Z'
+  labels:
+    app: bamoe-canvas-cors-proxy
+    app.kubernetes.io/component: bamoe-canvas-cors-proxy
+    app.kubernetes.io/instance: bamoe-canvas-cors-proxy
+    app.kubernetes.io/part-of: bamoe-v921
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  managedFields:
+    - manager: kubectl-label
+      operation: Update
+      apiVersion: v1
+      time: '2025-08-07T02:26:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:app.kubernetes.io/part-of': {}
+    - manager: oc
+      operation: Update
+      apiVersion: v1
+      time: '2025-08-07T02:26:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":8080,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  clusterIP: 10.217.5.234
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 10.217.5.234
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    deployment: bamoe-canvas-cors-proxy
+status:
+  loadBalancer: {}

@@ -1,0 +1,14 @@
+package rules
+expander model.dsl
+
+rule "Verify Age Action" 
+   dialect "mvel"
+  
+   when 
+      There is customer
+      There is recommendation for the customer
+   	    - action taken == "Verify Age"
+   then
+      set the action taken of the recommendation to upper case 
+      set the message of recommendation to "Verify Age"     
+end 

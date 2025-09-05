@@ -1,0 +1,48 @@
+################################################
+# REST Endpoint Tests
+################################################
+
+@local.host.url = http://localhost:8080
+@remote.host.url = https://classic-decision-service-bamoe-instructor-labs.apps-crc.testing
+@host={{remote.host.url}}
+@contentType = application/json
+
+################################################
+# Process Customers
+################################################
+
+POST {{host}}/bamoe-decision-labs-classic-decision-service/process-customers HTTP/1.1
+content-type: {{contentType}}
+
+[
+  {
+    "id": "727225345354",
+    "lastName": "White",
+    "firstName": "Walter",
+    "age": 72
+  },
+  {
+    "id": "13431451345",
+    "lastName": "White",
+    "firstName": "Skyler",
+    "age": 60
+  },
+  {
+    "id": "6453454345",
+    "lastName": "White",
+    "firstName": "Walter Junior",
+    "age": 16,
+    "recommendation": {
+      "actionTaken": "Verify Age"
+    }     
+  },
+  {
+    "id": "452754",
+    "lastName": "Goodman",
+    "firstName": "Saul",
+    "age": 62,
+    "recommendation": {
+      "actionTaken": "Default"
+     }     
+  }
+]

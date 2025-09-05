@@ -1,0 +1,17 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: keycloak-basic
+  namespace: bamoe-v921-infrastructure
+spec:
+  host: bamoe-keycloak.apps-crc.testing
+  to:
+    kind: Service
+    name: keycloak
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None

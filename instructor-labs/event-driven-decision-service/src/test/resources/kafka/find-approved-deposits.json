@@ -1,0 +1,62 @@
+{
+  "key": null,
+  "value": {
+    "specversion": "1.0",
+    "id": "a89b61a2-5644-487a-8a86-144855c5dce8",
+    "source": "UnitTests",
+    "type": "RulesRequest",
+    "subject": "Find Approved Deposits",
+    "kogitoruleunitid": "com.ibm.edu.bamoe.labs.rules.DepositUnit",
+    "kogitoruleunitquery": "FindApproved",
+    "data": {
+      "maxAmount": 5000,
+      "deposits": [
+        {
+          "id": "ABC10001",
+          "amount": 300,
+          "deposit": 100,
+          "customer": {
+            "age": 45,
+            "firstName": "Walter",
+            "lastName": "White"
+          }
+        },
+        {
+          "id": "ABC10002",
+          "amount": 5000,
+          "deposit": 100,
+          "customer": {
+            "age": 3,
+            "firstName": "Holly",
+            "lastName": "White"
+          }
+        },
+        {
+          "id": "ABC10015",
+          "amount": 1000,
+          "deposit": 100,
+          "customer": {
+            "age": 12,
+            "firstName": "Walter",
+            "lastName": "White Jr."
+          }
+        },
+        {
+          "id": "ABC10015",
+          "amount": 1000,
+          "deposit": 100,
+          "customer": {
+            "age": 62,
+            "firstName": "Saul",
+            "lastName": "Goodman"
+          }
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "value_metadata": {
+      "data_format": "JSON"
+    }
+  }
+}

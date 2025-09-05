@@ -1,0 +1,17 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: pgweb-external
+  namespace: bamoe-v921-infrastructure
+spec:
+  host: bamoe-pgweb.apps-crc.testing
+  to:
+    kind: Service
+    name: pgweb
+    weight: 100
+  port:
+    targetPort: 8081
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  wildcardPolicy: None
