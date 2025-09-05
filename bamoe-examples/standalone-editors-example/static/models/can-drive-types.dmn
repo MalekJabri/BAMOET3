@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dmn:definitions xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" xmlns:feel="https://www.omg.org/spec/DMN/20230324/FEEL/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="_5CFB06AB-9391-49CF-A6BD-94A487FCFEAC" name="CanDriveTypes" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.apache.org/dmn/_C8506285-F01E-45E6-9A43-A3E07D46457E">
+  <dmn:extensionElements />
+  <dmn:itemDefinition id="_7199990C-1389-42D3-9395-2A7D30B17CBB" name="tPerson" isCollection="false">
+    <dmn:itemComponent id="_50C11BAB-29C2-4F91-B3D8-56CF9C12AF13" name="Country" isCollection="false">
+      <dmn:typeRef>Country</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_A1B345A1-3855-4C23-B9AE-6D3CBAE9C67E" name="Age" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_9E505C95-F94E-4EBD-932A-813AB1A25661" name="Passed the test" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_D080A6C5-B0AB-41EA-B4B8-9950ED739D62" name="Country" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+    <dmn:allowedValues xmlns:kie="http://www.drools.org/kie/dmn/1.2" kie:constraintType="enumeration" id="_E797E6E0-4D65-4A13-B70E-30F7BEC9A4E0">
+      <dmn:text>&quot;Brazil&quot;, &quot;USA&quot;, &quot;England&quot;</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmndi:DMNDI xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/">
+    <dmndi:DMNDiagram id="_9DEBB572-4649-4F4C-A86E-4A0FA062B0ED" name="DRG">
+      <di:extension xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/">
+        <kie:ComponentsWidthsExtension xmlns:kie="http://www.drools.org/kie/dmn/1.2" />
+      </di:extension>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>

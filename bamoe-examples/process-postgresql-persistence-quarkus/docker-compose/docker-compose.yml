@@ -1,0 +1,49 @@
+version: "3"
+
+services:
+  postgres-compose:
+    image: postgres:16.8-alpine3.21
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d/
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "kogito", "-U", "kogito-user" ]
+      timeout: 45s
+      interval: 10s
+      retries: 50
+    networks:
+      - postgres-compose-network
+
+  pgadmin-compose:
+    image: dpage/pgadmin4:9.1
+    container_name: pgadmin
+    ports:
+      - 8055:80
+    depends_on:
+      - postgres-compose
+    volumes:
+      - ./pgadmin/servers.json:/pgadmin4/servers.json
+      - ./pgadmin/pgpass:/pgadmin4/pgpass
+    entrypoint: >
+      /bin/sh -c "
+      cp -f /pgadmin4/pgpass /var/lib/pgadmin/;
+      chmod 600 /var/lib/pgadmin/pgpass;
+      /entrypoint.sh
+      "
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@kogito.org
+      PGADMIN_DEFAULT_PASSWORD: pass
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+      GUNICORN_ACCESS_LOGFILE: "/dev/null"
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge

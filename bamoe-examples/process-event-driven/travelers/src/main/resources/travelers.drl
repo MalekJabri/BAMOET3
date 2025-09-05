@@ -1,0 +1,24 @@
+package org.acme.travel
+unit TravelerValidationService
+
+import org.acme.travel.Traveler;
+
+rule "Process travelers"
+
+when
+    $traveler: /traveler[processed == false, nationality != 'American']
+then
+	System.out.println("Hello traveler " + $traveler);   
+	$traveler.setProcessed( true );
+  
+end
+
+rule "Don't process travelers from US"
+
+when
+    $traveler: /traveler[processed == false, nationality == 'American']
+then
+	System.out.println("This system can't deal with " + $traveler.getNationality());
+ 	$traveler.setProcessed( false ); 
+    
+end

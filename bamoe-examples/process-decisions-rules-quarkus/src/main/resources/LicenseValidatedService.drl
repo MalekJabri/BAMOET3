@@ -1,0 +1,14 @@
+package org.kie.kogito.traffic.licensevalidated
+
+unit LicenseValidatedService
+
+rule "Is validated license validated"
+when            
+    $validated: /validated[suspended.equalsIgnoreCase("no")]
+then
+    $validated.setValidLicense(true);
+end
+
+query "validated"
+  $validated : /validated
+end

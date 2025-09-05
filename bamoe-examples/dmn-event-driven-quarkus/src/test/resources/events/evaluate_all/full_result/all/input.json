@@ -1,0 +1,21 @@
+{
+  "specversion" : "1.0",
+  "id" : "a89b61a2-5644-487a-8a86-144855c5dce8",
+  "source" : "SomeEventSource",
+  "type" : "DecisionRequest",
+  "subject" : "TheSubject",
+  "kogitodmnmodelname" : "Traffic Violation",
+  "kogitodmnmodelnamespace" : "https://kie.apache.org/dmn/_83FC32D4-457F-45ED-B892-11F1FE31D83D",
+  "kogitodmnfullresult": true,
+  "data" : {
+    "Driver" : {
+      "Age" : 25,
+      "Points" : 13
+    },
+    "Violation" : {
+      "Type" : "speed",
+      "Actual Speed" : 115,
+      "Speed Limit" : 100
+    }
+  }
+}

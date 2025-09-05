@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.ibm.bamoe</groupId>
+    <artifactId>bamoe-examples-parent</artifactId>
+    <version>9.2.1-ibm-0005</version>
+  </parent>
+  <artifactId>dmn-resource-jar-springboot-example</artifactId>
+  <name>Kogito Example :: DMN :: Resource jar providing model</name>
+  <packaging>pom</packaging>
+  <properties>
+    <version.org.kie.kogito>9.2.1-ibm-0005</version.org.kie.kogito>
+    <kogito.bom.version>9.2.1-ibm-0005</kogito.bom.version>
+  </properties>
+  <modules>
+    <module>dmn-springboot-resource-jar</module>
+    <module>dmn-springboot-consumer-example</module>
+  </modules>
+</project>

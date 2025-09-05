@@ -1,0 +1,21 @@
+package org.kie.kogito.traffic
+
+unit LicenseValidationService
+
+rule "Is driver license valid"
+when            
+    $driver: /driver[licenseExpiration.after(currentTime)]
+then
+    $driver.setValidLicense(true);
+end
+
+rule "Is driver license expired"
+when            
+    $driver: /driver[licenseExpiration.before(currentTime)]
+then
+    $driver.setValidLicense(false);
+end
+
+query "validation"
+  $driver : /driver
+end

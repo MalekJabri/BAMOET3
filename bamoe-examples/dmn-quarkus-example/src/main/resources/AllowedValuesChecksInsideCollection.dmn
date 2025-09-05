@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dmn:definitions xmlns="https://github.com/kiegroup/drools/kie-dmn/_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:feel="https://www.omg.org/spec/DMN/20230324/FEEL/" xmlns:dmn="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kie="https://kie.org/dmn/extensions/1.0" exporter="DMN Modeler" exporterVersion="5.1.10.201705011622" id="_60E12861-9E9E-4A8A-AF73-7339AE0010F3" name="AllowedValuesChecksInsideCollection" namespace="https://kie.apache.org/dmn/_E93F1115-55C7-4F4D-A81E-0C65833FC8D3">
+  <dmn:itemDefinition label="tInterest" name="tInterest" id="_C55DC122-6826-419B-AA60-0CB73D638E62">
+    <dmn:typeRef>string</dmn:typeRef>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition isCollection="true" label="tInterests" name="tInterests" id="_0FEA4945-8A7E-454A-BCBA-1911BA7B3694">
+    <dmn:typeRef>tInterest</dmn:typeRef>
+    <dmn:allowedValues kie:constraintType="enumeration" id="_5092EDC5-E0C7-49D9-91E8-A6A70027E0AF">
+      <dmn:text>&quot;Golf&quot;,&quot;Computer&quot;,&quot;Hockey&quot;,&quot;Jogging&quot;</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition isCollection="false" label="Person" name="Person" id="_46560BBE-FF41-46F1-8CED-4F4FFD9E6DBE">
+    <dmn:itemComponent id="_7939ee65-737d-4ea9-b912-448dd5fb2cf1" isCollection="false" name="Name">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_19ef99ee-1d53-4185-aa9d-8fe58a7834ce" isCollection="true" name="Interests">
+      <dmn:typeRef>tInterests</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:decision id="_ed3b9794-9306-4b6a-b4f9-5486be3c5515" name="MyDecision">
+    <dmn:variable id="_2e39fe17-4902-40ba-a36c-7fe0d3d992b9" name="MyDecision" typeRef="string" />
+    <dmn:informationRequirement id="_E422A1C8-97C1-4514-9647-920213A9E296">
+      <dmn:requiredInput href="#_27453770-68e3-48da-8605-d33a653c09ef" />
+    </dmn:informationRequirement>
+    <dmn:literalExpression id="_71df1866-2b74-4d40-b4fd-0ebe860b27f1">
+      <dmn:text>&quot;The Person &quot; + p1.Name + &quot; likes &quot; + string(count( p1.Interests )) + &quot; thing(s).&quot;</dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
+  <dmn:inputData id="_27453770-68e3-48da-8605-d33a653c09ef" name="p1">
+    <dmn:variable id="_1c6c0e02-8b82-4d1f-88a6-a2e35b4eedc7" name="p1" typeRef="Person" />
+  </dmn:inputData>
+</dmn:definitions>

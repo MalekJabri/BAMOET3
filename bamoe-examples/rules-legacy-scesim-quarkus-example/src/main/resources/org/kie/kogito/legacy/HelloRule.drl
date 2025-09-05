@@ -1,0 +1,15 @@
+package org.kie.kogito.legacy;
+
+import org.kie.kogito.legacy.Hello;
+
+rule HelloApprove when
+    $l: Hello( greeting.equals("foo") )
+then
+    modify($l) { setApproved(true) };
+end
+
+rule HelloDeny when
+    $l: Hello( greeting != "foo" )
+then
+    modify($l) { setApproved(false) };
+end

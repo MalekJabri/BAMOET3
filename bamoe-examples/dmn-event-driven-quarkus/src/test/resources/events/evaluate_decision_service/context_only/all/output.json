@@ -1,0 +1,21 @@
+{
+  "specversion": "1.0",
+  "id": "44a4d22a-0e5a-4db0-8042-923d41dc78a3",
+  "source": "Traffic+Violation/FineService",
+  "type": "DecisionResponse",
+  "subject": "TheSubject",
+  "kogitodmnmodelnamespace": "https://kie.apache.org/dmn/_83FC32D4-457F-45ED-B892-11F1FE31D83D",
+  "kogitodmnmodelname": "Traffic Violation",
+  "kogitodmnevaldecision": "FineService",
+  "data": {
+    "Violation": {
+      "Type": "speed",
+      "Speed Limit": 100,
+      "Actual Speed": 115
+    },
+    "Fine": {
+      "Points": 3,
+      "Amount": 500
+    }
+  }
+}
